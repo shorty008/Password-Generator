@@ -22,12 +22,11 @@ var passwordNumberCriteria = function() {
 
 // Password Character Types Function
 
-var differentCharacterType = function(){
   var specialCharacters = " .\+*?[^]$(){}=!<>|:-";
   var lowerCaseAphabet = "abcdefghijkmnopqrstuvwxyz";
   var capitalAphabet = "ABCDEFGHJKMNOPQRSTUVWXYZ";
   var numbersList = "0123456789"
-}
+
 
 
 //Generate Password 

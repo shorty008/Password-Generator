@@ -1,9 +1,3 @@
-// Assignment code here
-var specialCharacters = " .\+*?[^]$(){}=!<>|:-";
-var lowerCaseAphabet = "abcdefghijkmnopqrstuvwxyz";
-var capitalAphabet = "ABCDEFGHJKMNOPQRSTUVWXYZ";
-var numbersList = "0123456789"
-
 
 //Password Length Function 
 var passwordNumberCriteria = function() { 
@@ -17,6 +11,7 @@ var passwordNumberCriteria = function() {
         }
 
         else {
+          alert ("Try Again! Please enter in a number between 8 and 128.")
           passwordNumberCriteria();
         }
 
@@ -24,8 +19,30 @@ var passwordNumberCriteria = function() {
 
       };
 
+
+// Password Character Types Function
+
+var differentCharacterType = function(){
+  var specialCharacters = " .\+*?[^]$(){}=!<>|:-";
+  var lowerCaseAphabet = "abcdefghijkmnopqrstuvwxyz";
+  var capitalAphabet = "ABCDEFGHJKMNOPQRSTUVWXYZ";
+  var numbersList = "0123456789"
+}
+
+
+//Generate Password 
+
+var generatePassword = function() {
+  for(var 1 = 0; i < passwordNumberCriteriaTotal; i++) {
+    
+  }
+}
+
+
 // Get references to the #generate element
 var generateBtn = document.querySelector("#generate");
+
+
 
 // Write password to the #password input
 function writePassword() {

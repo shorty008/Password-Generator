@@ -1,3 +1,5 @@
+var passwordCharacters = "";
+var word = "";
 
 //Password Length Function 
 var passwordNumberCriteria = function() { 
@@ -19,9 +21,9 @@ var passwordNumberCriteria = function() {
 
 };
 
-
+//Password Character Function
 var passwordCharacterCriteria = function (){
-  var passwordCharacters ="";
+
 
   passwordCharacters = passwordCapitalLetters();
   passwordCharacters = passwordLowerLetters(passwordCharacters);
@@ -30,7 +32,7 @@ var passwordCharacterCriteria = function (){
 
   if (passwordCharacters === "" || passwordCharacters === null) {
     alert("Try again! Please select at least one password of the password criteria");
-    return passwordCharacter();
+    passwordCharacterCriteria();
   }
   else {
     alert("You password will contain a random selection containing the following characers:  " + passwordCharacters);
@@ -52,46 +54,56 @@ var passwordCharacterCriteria = function (){
     };
 
 //Lower Case Letters Code    
-var passwordLowerLetters =function(passwordCharacter){
+var passwordLowerLetters =function(passwordCharacters){
   var lowerLetters ="abcdefghijklmnopqrstuvwxyz";
   var lowerLettersPrompt = prompt("Enter Yes if you want to use Lower Case Letters");
       if (lowerLettersPrompt === "Yes" || lowerLettersPrompt === "yes" || lowerLettersPrompt === "YES"){       
-        lowerLetters = lowerLetters + passwordCharacter;
+        lowerLetters = lowerLetters + passwordCharacters;
         return lowerLetters;
       }
       else {
-        lowerLetters = passwordCharacter;
+        lowerLetters = passwordCharacters;
         return lowerLetters;
       }     
     };
 
 //generate number character code    
-var passwordNumbers =function(passwordCharacter){
+var passwordNumbers =function(passwordCharacters){
   var numbers ="0123456789";
   var numbersPrompt = prompt("Enter Yes if you want to use Numbers");
       if (numbersPrompt === "Yes" || numbersPrompt === "yes" || numbersPrompt === "YES"){       
-        numbers = numbers + passwordCharacter;
+        numbers = numbers + passwordCharacters;
         return numbers;
       }
       else {
-        numbers = passwordCharacter;
+        numbers = passwordCharacters;
         return numbers;
       }  
     };
 
 //generate special character code    
-var passwordSpecialChar =function(passwordCharacter){
+var passwordSpecialChar =function(passwordCharacters){
   var specialChar ="!@#$%^&*()";
   var specialCharPrompt = prompt("Enter Yes if you want to use Special Characaters");
   if (specialCharPrompt === "Yes" || specialCharPrompt === "yes"){          
-      specialChar = specialChar + passwordCharacter;
+      specialChar = specialChar + passwordCharacters;
         return specialChar;
       }
       else {
-        specialChar = passwordSpecialChar;
+        specialChar = passwordCharacters;
         return specialChar;     
     };
   }
+
+//Generate password function
+
+var generatePassword = function(){
+  for(var i=0; i<passwordNumberCriteriaTotal; i++){
+    word += passwordCharacters.charAt(Math.floor(Math.random() * passwordCharacters.length));
+  }
+  return word;
+}
+
 
 // Get references to the #generate element
 var generateBtn = document.querySelector("#generate");
@@ -102,7 +114,7 @@ var generateBtn = document.querySelector("#generate");
 function writePassword() {
   passwordNumberCriteria();
   passwordCharacterCriteria();
-
+  
 
   var password = generatePassword();
   var passwordText = document.querySelector("#password");
